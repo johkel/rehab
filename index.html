@@ -7,40 +7,88 @@
         <link href="jquery.mobile-1.4.5.min.css" rel="stylesheet">
         <link href="turkos.css" rel="stylesheet">
         <!--<link href="jquery.mobile.theme-1.4.5.min.css" rel="stylesheet">-->
-        <link href="mobile.css" rel="stylesheet">
+        <link href="rehab.css" rel="stylesheet">
     </head>
     <body>
 
-        <div data-role="page" id="index" data-theme="d">
-            <div data-role="header"><h1>Logg</h1></div><!-- /header -->
+        <div data-role="page" id="logga" data-theme="b">
+            <!--<div data-role="header"><h1>Logga</h1></div> /header -->
             <div role="main" class="ui-content">
                 <form class="ui-filterable">
                     <fieldset data-role="controlgroup" data-type="vertical">
                         <legend>Övning</legend>
-                        <input type="radio" name="radio" id="radio1" value="övn 1" checked="checked">
+                        <input type="radio" class="typ" name="radio" id="radio1" value="Uppåtgående hund" checked="checked">
                         <label for="radio1">Uppåtgående hund</label>
-                        <input type="radio" name="radio" id="radio3" value="övn3">
+                        <input type="radio" class="typ" name="radio" id="radio4" value="Uppåtgående hund m höjning">
+                        <label for="radio4">Uppåtgående hund m höjning</label>
+                        <input type="radio" class="typ" name="radio" id="radio3" value="Liggande sidoöppning">
                         <label for="radio3">Liggande sidoöppning</label>
-                        <input type="radio" name="radio" id="radio2" value="övn2">
+                        <input type="radio" class="typ" name="radio" id="radio2" value="Sned uppåtgående hund">
                         <label for="radio2">Sned uppåtgående hund</label>
                     </fieldset>
                     <br>
-                    <br>
+                    <!--<br>-->
                     <fieldset>
                         <legend>Antal repetitioner</legend>
-                    <input type="range" name="slider" id="slider" value="10" min="5" max="15">
+                        <input type="range" name="slider" id="antal" value="5" min="0" max="15">
                     </fieldset>
                     <br>
-                    <br>
-                    <button class="ui-shadow ui-btn ui-corner-all">Logga</button>
+                    <!--<br>-->
+                    <a href="#" class="ui-shadow ui-btn ui-corner-all" id="loggaTid">Logga</a>
                 </form>
+                <!--<a href="#popupAdded" data-rel="popup" data-position-to="window" data-transition="fade">popup</a>-->
+                <div data-role="popup" id="popupAdded" data-overlay-theme="b" data-theme="b" data-dismissible="true" style="max-width:400px;">
+                        <div role="main" class="ui-content">
+                                <h3 class="ui-title">Övningen är sparad</h3>
+                            <p>Klicka på OK eller utanför rutan för att stänga.</p>
+                                <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-b" data-rel="back" data-transition="flow">OK</a>
+                            </div>
+                </div>
             </div><!-- /content -->
+            <div data-role="footer" data-position="fixed" data-theme="b" class="page-footer">
+                <div  data-role="navbar"  class="">
+                    <ul>
+                        <li><a data-icon="edit" class="ui-btn ui-state-persist ui-btn-active" href="#logga">Logga</a></li>
+                        <li><a data-icon="calendar" class="ui-btn" href="#visa">Visa</a></li>
+                    </ul>
+                </div>
+            </div> <!--/footer -->
         </div><!-- /page -->
 
+        <div data-role="page" id="visa" data-theme="b">
+            <!--<div data-role="header"><h1>Visa</h1></div> /header -->
+            <div role="main" class="ui-content">
+                <div id="lista">
+
+                </div>
+                <table data-role="table" id="tabell-logg" data-mode="columntoggle:none" class="ui-responsive ui-body-a ui-shadow table-stroke table-stripe">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th data-priority="1">Datum</th>
+                            <th data-priority="1">Övning</th>
+                            <th data-priority="1">Reps</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div><!-- /content -->
+            <div data-role="footer" data-position="fixed" data-theme="b" class="page-footer">
+                <div  data-role="navbar"  class="">
+                    <ul>
+                        <li><a data-icon="edit" class="ui-btn" href="#logga">Logga</a></li>
+                        <li><a data-icon="calendar" class="ui-btn ui-state-persist ui-btn-active" href="#visa">Visa</a></li>
+                    </ul>
+                </div>
+            </div> <!--/footer -->
+        </div><!-- /page -->
 
         <!--script-->
         <script src="js/jquery-2.1.3.min.js"></script>
-        <script src="js/mobile.js"></script>
         <script src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script src="//cdn.firebase.com/js/client/2.2.2/firebase.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+        <script src="js/rehab.js"></script>
     </body>
 </html>
